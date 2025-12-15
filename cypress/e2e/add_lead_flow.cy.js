@@ -13,7 +13,7 @@ cy.get('#login_password').type('admin');
 
 cy.get('#page-login > div > main > div.page_content > div > section.for-login > div.login-content.page-card > form > div > div.page-card-actions > button').click();
 
-cy.wait(50000)
+cy.wait(5000)
 
 cy.visit('http://100.64.34.39:8005/app/lending')
 
@@ -62,7 +62,12 @@ cy.get('#lead-__details > div:nth-child(1) > div > div:nth-child(3) > form > div
 cy.get('#lead-__details > div:nth-child(1) > div > div:nth-child(1) > form > div:nth-child(6) > div > div.control-input-wrapper > div.control-input > input').type('Awan')
 
 
-cy.get('#lead-__details > div:nth-child(2) > div.section-body > div:nth-child(1) > form > div:nth-child(1) > div > div.control-input-wrapper > div.control-input > input').type('abc123@gmail.com')
+const randomEmail = `test_${Date.now()}@mail.com`;
+
+cy.get('#lead-__details > div:nth-child(2) > div.section-body > div:nth-child(1) > form > div:nth-child(1) > div > div.control-input-wrapper > div.control-input > input')
+  .clear()
+  .type(randomEmail);
+
 
 cy.get('#lead-__details > div:nth-child(2) > div.section-body > div:nth-child(2) > form > div:nth-child(1) > div > div.control-input-wrapper > div.control-input > input').type('123456')
 
